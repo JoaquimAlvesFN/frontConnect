@@ -1,0 +1,268 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #fff;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 10vh 90vh;
+    grid-template-areas: "header header"
+                            "main main";
+}
+
+header {
+    background: #021443;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.10);
+    grid-area: header;
+}
+
+.headerContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 30px;
+    cursor: pointer;
+}
+
+
+.infoProfile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.infoProfile > div {
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.photoProfile {
+    background: transparent;
+    width: 40px;
+    height: 40px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: white;
+    border-radius: 50px;
+}
+
+header img {
+    max-width:100px;
+    max-height:150px;
+    width: auto;
+    height: auto;
+    margin-top: 5px;
+    margin-left: 30px;
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+}
+
+.iconBack {
+    margin-right: 10px;
+}
+
+.backPage {
+    color: white;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-left: 40px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+    background: linear-gradient(180deg, #006738, #CADA28);
+    grid-area: main;
+}
+
+.content {
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    background: transparent;
+}
+
+.report {
+    background: #f5f5f5;
+    width: 700px;
+    height: 500px;
+    margin-top: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.reportInfo {
+    display: flex;
+    flex-direction: column;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px;
+}
+
+/*.reportInfo :hover {
+    transform: translateY(-5px);
+    transition: all .2s;
+}*/
+
+.cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 30px;
+}
+
+.cardContent {
+    display: flex;
+    background: #f5f5f5;
+    width: 250px;
+    height: 220px;
+    margin-top: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/*.cards :hover {
+    transform: translateY(-5px);
+    transition: all .2s;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #002143;
+}*/
+
+.cardInfo {
+    padding-top: 10px;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.contentBetween {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.formBetween {
+    display: flex;
+    justify-content: center;
+    background: #f5f5f5;
+    height: 500px;
+    width: 300px;
+    margin-top: 20px;
+    border-radius: 6px;
+}
+
+.formBetween form {
+    padding: 20px;
+}
+
+.formBetween form label {
+    font-size: 14px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.formBetween form input {
+    margin-top: 10px;
+}
+
+.formBetween form button {
+    border:none!important;
+    margin-top: 5px;
+    width: 150px;
+    height: 30px;
+    background: #021443;
+    cursor: pointer;
+    border-radius: 3px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.reportBetween {
+    display: flex;
+    justify-content: center;
+    background: #f5f5f5;
+    margin-top: 20px;
+    height: 500px;
+    width: 800px;
+    border-radius: 6px;
+}
+
+.profileContent {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.fixBar {
+    border-style: solid;
+    border-width: 1px;
+    border-color: white;
+    margin-top: 30px;
+    margin-left: -300px;
+    height: 500px;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 20px;
+}
+
+.options img {
+    width: 150px;
+    height: 150px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: white;
+    border-radius: 150px;
+}
+
+.options span {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.formProfile h2 {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.formProfile form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.formProfile form input {
+    margin-top: 5px;
+}
+
+.formProfile form label {
+    font-size: 14px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}

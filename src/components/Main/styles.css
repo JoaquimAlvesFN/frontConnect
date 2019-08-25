@@ -1,0 +1,43 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #fff;
+}
+
+
+main {
+    background: #006738;
+    grid-area: main;
+}
+
+.content {
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    background: transparent;
+}
+
+.report {
+    background: #021443;
+    width: 700px;
+    height: 500px;
+    margin-top: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 30px;
+}
+
+.cardContent {
+    background: #021443;
+    width: 250px;
+    height: 220px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
