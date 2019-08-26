@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom';
 import socketIOClient from 'socket.io-client';
 import api from '../../services/api';
 
-import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDollarSign, faChartBar, faUserFriends, faHourglassHalf } from '@fortawesome/free-solid-svg-icons'
@@ -112,13 +116,30 @@ export default class Dashboard extends Component {
                 <FontAwesomeIcon icon={faChartBar} size="3x" />
                 Relatórios
                 <div className="reportContent">
-                  <BootstrapTable data={reports} options={{noDataText: 'Sem registro no momento...'}} bordered={true} striped condensed version="4">
-                    <TableHeaderColumn dataField='id' isKey={true}>ID</TableHeaderColumn>
-                    <TableHeaderColumn dataField='calldate'>Data</TableHeaderColumn>
-                    <TableHeaderColumn dataField='src'>Origem</TableHeaderColumn>
-                    <TableHeaderColumn dataField='dst'>Destino</TableHeaderColumn>
-                    <TableHeaderColumn dataField='disposition'>Status</TableHeaderColumn>
-                  </BootstrapTable>
+                  <Table size="small">
+                    <TableHead>
+                      <TableRow>
+                        <TableCell>ID</TableCell>
+                        <TableCell>Data</TableCell>
+                        <TableCell>Origem</TableCell>
+                        <TableCell>Destino</TableCell>
+                        <TableCell>Tempo</TableCell>
+                        <TableCell>Status</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {reports.map(row => (
+                        <TableRow key={row.id}>
+                          <TableCell>{row.id}</TableCell>
+                          <TableCell>{row.calldate}</TableCell>
+                          <TableCell>{row.src}</TableCell>
+                          <TableCell>{row.dst}</TableCell>
+                          <TableCell>{row.billsec}</TableCell>
+                          <TableCell>{row.disposition}</TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
                 </div>
               </div>
             </div>

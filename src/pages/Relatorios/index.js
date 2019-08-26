@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import socketIOClient from 'socket.io-client';
 import api from '../../services/api';
 
-import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
+//import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
@@ -16,16 +21,20 @@ export default class Relatorios extends Component {
     super();
     this.state = {
       reports: [
-        {id: 1, calldate: '2019-08-25 15:25:00', src: 85986516133, dst: 2000, billsec: 180, disposition: 'Atendido'},
-        {id: 2, calldate: '2019-08-25 15:25:00', src: 85986516133, dst: 2000, billsec: 180, disposition: 'Atendido'},
-        {id: 3, calldate: '2019-08-25 15:25:00', src: 85986516133, dst: 2000, billsec: 180, disposition: 'Atendido'},
-        {id: 4, calldate: '2019-08-25 15:25:00', src: 85986516133, dst: 2000, billsec: 180, disposition: 'Atendido'},
-        {id: 5, calldate: '2019-08-25 15:25:00', src: 85986516133, dst: 2000, billsec: 180, disposition: 'Atendido'},
-        {id: 6, calldate: '2019-08-25 15:25:00', src: 85986516133, dst: 2000, billsec: 180, disposition: 'Atendido'},
-        {id: 7, calldate: '2019-08-25 15:25:00', src: 85986516133, dst: 2000, billsec: 180, disposition: 'Atendido'},
-        {id: 8, calldate: '2019-08-25 15:25:00', src: 85986516133, dst: 2000, billsec: 180, disposition: 'Atendido'},
-        {id: 9, calldate: '2019-08-25 15:25:00', src: 85986516133, dst: 2000, billsec: 180, disposition: 'Atendido'},
-        {id: 10, calldate: '2019-08-25 15:25:00', src: 85986516133, dst: 2000, billsec: 180, disposition: 'Atendido'}
+        {id: 1, calldate: '2019-08-25 15:25:00', src: 85986516133, dst: 2000, billsec: 180, disposition: 'Atendido', linkedid: "gravavao.mp3"},
+        {id: 2, calldate: '2019-08-25 15:25:00', src: 85986516133, dst: 2000, billsec: 180, disposition: 'Atendido', linkedid: "gravavao.mp3"},
+        {id: 3, calldate: '2019-08-25 15:25:00', src: 85986516133, dst: 2000, billsec: 180, disposition: 'Atendido', linkedid: "gravavao.mp3"},
+        {id: 4, calldate: '2019-08-25 15:25:00', src: 85986516133, dst: 2000, billsec: 180, disposition: 'Atendido', linkedid: "gravavao.mp3"},
+        {id: 5, calldate: '2019-08-25 15:25:00', src: 85986516133, dst: 2000, billsec: 180, disposition: 'Atendido', linkedid: "gravavao.mp3"},
+        {id: 6, calldate: '2019-08-25 15:25:00', src: 85986516133, dst: 2000, billsec: 180, disposition: 'Atendido', linkedid: "gravavao.mp3"},
+        {id: 7, calldate: '2019-08-25 15:25:00', src: 85986516133, dst: 2000, billsec: 180, disposition: 'Atendido', linkedid: "gravavao.mp3"},
+        {id: 8, calldate: '2019-08-25 15:25:00', src: 85986516133, dst: 2000, billsec: 180, disposition: 'Atendido', linkedid: "gravavao.mp3"},
+        {id: 9, calldate: '2019-08-25 15:25:00', src: 85986516133, dst: 2000, billsec: 180, disposition: 'Atendido', linkedid: "gravavao.mp3"},
+        {id: 10, calldate: '2019-08-25 15:25:00', src: 85986516133, dst: 2000, billsec: 180, disposition: 'Atendido', linkedid: "gravavao.mp3"},
+        {id: 11, calldate: '2019-08-25 15:25:00', src: 85986516133, dst: 2000, billsec: 180, disposition: 'Atendido', linkedid: "gravavao.mp3"},
+        {id: 12, calldate: '2019-08-25 15:25:00', src: 85986516133, dst: 2000, billsec: 180, disposition: 'Atendido', linkedid: "gravavao.mp3"},
+        {id: 13, calldate: '2019-08-25 15:25:00', src: 85986516133, dst: 2000, billsec: 180, disposition: 'Atendido', linkedid: "gravavao.mp3"},
+        {id: 14, calldate: '2019-08-25 15:25:00', src: 85986516133, dst: 2000, billsec: 180, disposition: 'Atendido', linkedid: "gravavao.mp3"},
       ],
       response: false,
       endpoint: "http://localhost:3002",
@@ -98,14 +107,32 @@ export default class Relatorios extends Component {
               </form>
             </div>
             <div className="reportBetween">
-              <BootstrapTable data={reports} options={{noDataText: 'Sem registro no momento...'}} bordered={true} striped hover condensed version="4">
-                <TableHeaderColumn dataField='id' isKey={true}>ID</TableHeaderColumn>
-                <TableHeaderColumn dataField='calldate'>Data</TableHeaderColumn>
-                <TableHeaderColumn dataField='src'>Origem</TableHeaderColumn>
-                <TableHeaderColumn dataField='dst'>Destino</TableHeaderColumn>
-                <TableHeaderColumn dataField='billsec'>Tempo</TableHeaderColumn>
-                <TableHeaderColumn dataField='disposition'>Status</TableHeaderColumn>
-              </BootstrapTable>
+              <Table size="small">
+                <TableHead>
+                  <TableRow>
+                    <TableCell>ID</TableCell>
+                    <TableCell>Data</TableCell>
+                    <TableCell>Origem</TableCell>
+                    <TableCell>Destino</TableCell>
+                    <TableCell>Tempo</TableCell>
+                    <TableCell>Status</TableCell>
+                    <TableCell>Gravação</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {reports.map(row => (
+                    <TableRow key={row.id}>
+                      <TableCell>{row.id}</TableCell>
+                      <TableCell>{row.calldate}</TableCell>
+                      <TableCell>{row.src}</TableCell>
+                      <TableCell>{row.dst}</TableCell>
+                      <TableCell>{row.billsec}</TableCell>
+                      <TableCell>{row.disposition}</TableCell>
+                      <TableCell>{row.linkedid}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
             </div>
           </div>
         </main>
